@@ -7,18 +7,18 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: api-user  # L'URL de votre service OAuth
-#          jwk-set-uri: http://api-user:8083/oauth/jwks  # Endpoint pour obtenir les clés publiques pour valider les JWT
-          jwk-set-uri: http://localhost:8083/oauth/jwks  # Endpoint pour obtenir les clés publiques pour valider les JWT
+          jwk-set-uri: http://api-user:8083/oauth/jwks  # Endpoint pour obtenir les clés publiques pour valider les JWT
+          # jwk-set-uri: http://localhost:8083/oauth/jwks  # Endpoint pour obtenir les clés publiques pour valider les JWT
 
   config:
-#    import: optional:configserver:http://ms-config:8888
-    import: optional:configserver:http://localhost:8888
+    import: optional:configserver:http://ms-config:8888
+    # import: optional:configserver:http://localhost:8888
     cloud:
       config:
         enabled: true  # Utilisation des propriétés locales si Config Server est indisponible
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-#    url: jdbc:mariadb://mariadb:3306/Jcaisse_entreprise?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    # url: jdbc:mariadb://mariadb:3306/Jcaisse_entreprise?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     url: jdbc:mariadb://localhost:3306/Jcaisse_entreprise?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
 #    username: root
     username: yaatout
@@ -58,5 +58,5 @@ eureka:
     prefer-ip-address: true  # Utiliser l'adresse IP au lieu du nom d'hôte
   client:
     service-url:
-#      defaultZone: ${EUREKA_URI:http://ms-register:8761/eureka/}  # URL de Eureka avec fallback
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka/}
+      defaultZone: ${EUREKA_URI:http://ms-register:8761/eureka/}  # URL de Eureka avec fallback
+      # defaultZone: ${EUREKA_URI:http://localhost:8761/eureka/}
