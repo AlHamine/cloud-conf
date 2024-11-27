@@ -19,9 +19,9 @@ spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     # url: jdbc:mariadb://mariadb:3306/Jcaisse_entreprise?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-    url: jdbc:mariadb://localhost:3306/Jcaisse_entreprise?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    url: jdbc:mariadb://mariadb-api-entreprise:3306/Jcaisse_entreprise?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
 #    username: root
-    username: yaatout
+    username: root
     password: yaatout
   jpa:
     hibernate:
