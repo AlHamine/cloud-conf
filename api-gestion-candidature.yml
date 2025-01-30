@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: api-gestion-candidature
+  mvc:
+    servlet:
+      path: /api/startup
+#   security:
+#     oauth2:
+#       resourceserver:
+#         jwt:
+#           jwk-set-uri: http://localhost:8083/oauth/jwks  # URL pour obtenir les clés JWK
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://mariadb-api-gestion-candidature:3306/gestionCandidat?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    # url: jdbc:mariadb://mariadb:3306/Jcaisse_user?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: startup
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update  # Utilisé pour mettre à jour la base de données
+
+  app:
+    jwtSecret: samaMbote#413F4428472B4B6250655368566D5970337336763979244226452948404D6351
+    jwtExpirationMs: 86400000
+
+server:
+  port: 8092
+  # port: 8083
+
+
+documents:
+  directory: /app/documents
+  # directory: src/main/resources/static/Candidatures
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://ms-register:8761/eureka/}
+
+
