@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/gestion_daos_maquette?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: startup
+    driver-class-name: org.mariadb.jdbc.Driver
+
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop  # Peut être modifié en create, validate ou update selon le besoin
+    show-sql: true
+
+spring.application.name: maquette-service
+server:
+  port: 8081
