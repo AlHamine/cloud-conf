@@ -37,6 +37,6 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: ${EUREKA_URI:http://ms-register:8761/eureka/}
+      defaultZone: ${EUREKA_URI:http://ms-register:8093/eureka/}
 
 
