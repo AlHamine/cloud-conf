@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mariadb://mariadb-api-gestion-maquette:3306/gestionCandidat?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    url: jdbc:mariadb://mariadb-api-gestion-maquette:3306/gestionMaquette?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
     password: startup
     driver-class-name: org.mariadb.jdbc.Driver
