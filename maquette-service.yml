@@ -13,4 +13,4 @@ spring:
 
 spring.application.name: maquette-service
 server:
-  port: 8081
+  port: 8094
