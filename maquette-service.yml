@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: maquette-service
   datasource:
     url: jdbc:mariadb://mariadb-api-gestion-maquette:3306/gestionMaquette?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
@@ -11,6 +13,13 @@ spring:
       ddl-auto: create-drop  # Peut être modifié en create, validate ou update selon le besoin
     show-sql: true
 
-spring.application.name: maquette-service
+
 server:
   port: 8094
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://ms-register:8093/eureka/}
