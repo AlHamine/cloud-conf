@@ -30,20 +30,20 @@ spring:
         enabled: true  # Active la découverte de services via Eureka
         locator:
           enabled: true  # Permet au Gateway de localiser les services via Eureka
-      # default-filters:
-      #   - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
-      # globalcors:
-      #   corsConfigurations:
-      #     '[/**]':
-      #       allowedOrigins: "http://localhost:3000"
-      #       allowedHeaders: "*"
-      #       allowedMethods:
-      #       - GET
-      #       - POST
-      #       - PATCH
-      #       - DELETE
-      #       - PUT
-      # routes:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000"
+            allowedHeaders: "*"
+            allowedMethods:
+            - GET
+            - POST
+            - PATCH
+            - DELETE
+            - PUT
+      routes:
       #   - id: maquette-service
       #     uri: http://localhost:8081/
       #     predicates:
