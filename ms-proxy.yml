@@ -35,7 +35,7 @@ spring:
       globalcors:
         corsConfigurations:
           '[/**]':
-            allowedOrigins: "http://localhost:3000"
+            allowedOrigins: "http://localhost:3000, http://31.220.20.148:3093"
             allowedHeaders: "*"
             allowedMethods:
             - GET
@@ -43,6 +43,7 @@ spring:
             - PATCH
             - DELETE
             - PUT
+            - OPTIONS
       routes:
       #   - id: maquette-service
       #     uri: http://localhost:8081/
