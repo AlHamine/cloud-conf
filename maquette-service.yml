@@ -10,7 +10,7 @@ spring:
   jpa:
     generate-ddl: true
     hibernate:
-      ddl-auto: create-drop  # Peut être modifié en create, validate ou update selon le besoin
+      ddl-auto: update  # Peut être modifié en create, validate ou update selon le besoin
     show-sql: true
 
 
