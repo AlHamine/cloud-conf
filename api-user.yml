@@ -18,7 +18,9 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update  # Utilisé pour mettre à jour la base de données
+      ddl-auto: update
+      # ddl-auto: create-drop
+
 
   app:
     jwtSecret: samaMbote#413F4428472B4B6250655368566D5970337336763979244226452948404D6351
