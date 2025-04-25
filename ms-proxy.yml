@@ -35,7 +35,7 @@ spring:
       globalcors:
         corsConfigurations:
           '[/**]':
-            allowedOrigins: "http://localhost:3000, http://31.220.20.148:3093"
+            allowedOrigins: "http://localhost:3000, http://31.220.20.148:3093, http://depinfo-dev.tech:3093"
             allowedHeaders: "*"
             allowedMethods:
             - GET
