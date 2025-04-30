@@ -9,11 +9,11 @@ spring:
   mvc:
     servlet:
       path: /api/startup
-#   security:
-#     oauth2:
-#       resourceserver:
-#         jwt:
-#           jwk-set-uri: http://localhost:8083/oauth/jwks  # URL pour obtenir les clés JWK
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://api-user:8083/oauth/jwks  # URL pour obtenir les clés JWK
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://mariadb-api-gestion-candidature:3306/gestionCandidat?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
