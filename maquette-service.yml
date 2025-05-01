@@ -1,6 +1,12 @@
 spring:
   application:
     name: maquette-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://api-user:8091/api/user/gestionCandidature/oauth/jwks  # URL pour obtenir les clés JWK
+
   datasource:
     url: jdbc:mariadb://mariadb-api-gestion-maquette:3306/gestionMaquette?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
