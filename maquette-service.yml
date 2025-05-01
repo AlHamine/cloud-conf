@@ -30,3 +30,10 @@ eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_URI:http://ms-register:8093/eureka/}
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
+    com.nimbusds: DEBUG
+    org.springframework.security.oauth2.jwt: DEBUG
+
