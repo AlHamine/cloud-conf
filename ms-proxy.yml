@@ -44,6 +44,7 @@ spring:
             - DELETE
             - PUT
             - OPTIONS
+            maxAge: 3600 # en secondes (1h) : durée de cache du preflight
       routes:
       #   - id: maquette-service
       #     uri: http://localhost:8081/
