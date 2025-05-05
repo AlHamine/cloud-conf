@@ -1,10 +1,8 @@
-
 #   # security:
 #   #   oauth2:
 #   #     resourceserver:
 #   #       jwt:
 #   #         issuer-uri: http://api-user:8091/yaatout/auth  # Remplacez par l'URI de votre serveur d'authentification
-  
 
 #   config:
 # #    import: optional:configserver:http://localhost:8888
@@ -17,33 +15,33 @@ spring:
   application:
     name: ms-proxy
     #   # security:
-#   #   oauth2:
-#   #     resourceserver:
-#   #       jwt:
-#   #         issuer-uri: http://api-user:8091/yaatout/auth  # Remplacez par l'URI de votre serveur d'authentification
+  #   #   oauth2:
+  #   #     resourceserver:
+  #   #       jwt:
+  #   #         issuer-uri: http://api-user:8091/yaatout/auth  # Remplacez par l'URI de votre serveur d'authentification
 
   cloud:
     config:
       enabled: false
     gateway:
       discovery:
-        enabled: true  # Active la découverte de services via Eureka
+        enabled: true # Active la découverte de services via Eureka
         locator:
-          enabled: true  # Permet au Gateway de localiser les services via Eureka
+          enabled: true # Permet au Gateway de localiser les services via Eureka
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       globalcors:
         corsConfigurations:
-          '[/**]':
+          "[/**]":
             allowedOrigins: "http://localhost:3000, http://31.220.20.148:3093, http://depinfo-dev.tech:3093"
             allowedHeaders: "*"
             allowedMethods:
-            - GET
-            - POST
-            - PATCH
-            - DELETE
-            - PUT
-            - OPTIONS
+              - GET
+              - POST
+              - PATCH
+              - DELETE
+              - PUT
+              - OPTIONS
             maxAge: 3600 # en secondes (1h) : durée de cache du preflight
       routes:
       #   - id: maquette-service
