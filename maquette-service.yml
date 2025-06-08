@@ -57,8 +57,8 @@ spring:
 
   datasource:
     url: jdbc:mariadb://localhost:3306/gestionMaquette?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-    username: root
-    password: startup
+    username: daos
+    password: daos
     driver-class-name: org.mariadb.jdbc.Driver
 
 
