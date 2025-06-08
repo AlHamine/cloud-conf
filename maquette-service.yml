@@ -4,6 +4,10 @@
 spring:
   application:
     name: maquette-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 server:
   port: 8094
 
@@ -29,11 +33,6 @@ spring:
     username: root
     password: startup
     driver-class-name: org.mariadb.jdbc.Driver
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
 
 eureka:
   client:
@@ -62,10 +61,7 @@ spring:
     password: startup
     driver-class-name: org.mariadb.jdbc.Driver
 
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
+
 
 eureka:
   client:
