@@ -1,6 +1,20 @@
 spring:
   application:
     name: api-user
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  app:
+    jwtSecret: samaMbote#413F4428472B4B6250655368566D5970337336763979244226452948404D6351
+    jwtExpirationMs: 86400000
+
+server:
+  servlet:
+    context-path: /api/user/gestionCandidature
+  port: 8091
+
 
 ---
 
@@ -16,27 +30,11 @@ spring:
     username: root
     password: startup
 
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-
-  app:
-    jwtSecret: samaMbote#413F4428472B4B6250655368566D5970337336763979244226452948404D6351
-    jwtExpirationMs: 86400000
-
-server:
-  servlet:
-    context-path: /api/user/gestionCandidature
-  port: 8091
-
 eureka:
   client:
     service-url:
       defaultZone: http://ms-register:8093/eureka/
-
 ---
-
 # ---------- Profil Local ----------
 spring:
   config:
@@ -49,19 +47,6 @@ spring:
     username: daos
     password: daos
 
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-
-  app:
-    jwtSecret: samaMbote#413F4428472B4B6250655368566D5970337336763979244226452948404D6351
-    jwtExpirationMs: 86400000
-
-server:
-  servlet:
-    context-path: /api/user/gestionCandidature
-  port: 8091
 
 eureka:
   client:
