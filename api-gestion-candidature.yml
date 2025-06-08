@@ -6,24 +6,34 @@ spring:
       max-file-size: 20MB
       max-request-size: 40MB
 
+---
+
+# ---------- PROFIL DOCKER ----------
+spring:
+  config:
+    activate:
+      on-profile: docker
+
   mvc:
     servlet:
       path: /api/startup
+
   security:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: http://api-user:8091/api/user/gestionCandidature/oauth/jwks  # URL pour obtenir les clés JWK
+          jwk-set-uri: http://api-user:8091/api/user/gestionCandidature/oauth/jwks
+
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://mariadb-api-gestion-candidature:3306/gestionCandidat?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-    # url: jdbc:mariadb://mariadb:3306/Jcaisse_user?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
     password: startup
+
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update  # Utilisé pour mettre à jour la base de données
+      ddl-auto: update
 
   app:
     jwtSecret: samaMbote#413F4428472B4B6250655368566D5970337336763979244226452948404D6351
@@ -31,18 +41,15 @@ spring:
 
 server:
   port: 8092
-  # port: 8083
-
 
 documents:
   directory: /app/documents
-  # directory: src/main/resources/static/Candidatures
+
 eureka:
-  instance:
-    prefer-ip-address: true
   client:
     service-url:
-      defaultZone: ${EUREKA_URI:http://ms-register:8093/eureka/}
+      defaultZone: http://ms-register:8093/eureka/
+
 logging:
   level:
     org.springframework.security: DEBUG
@@ -50,3 +57,53 @@ logging:
     com.nimbusds: DEBUG
     org.springframework.security.oauth2.jwt: DEBUG
 
+---
+
+# ---------- PROFIL LOCAL ----------
+spring:
+  config:
+    activate:
+      on-profile: local
+
+  mvc:
+    servlet:
+      path: /api/startup
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8091/api/user/gestionCandidature/oauth/jwks
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/gestionCandidat?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: startup
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  app:
+    jwtSecret: samaMbote#413F4428472B4B6250655368566D5970337336763979244226452948404D6351
+    jwtExpirationMs: 86400000
+
+server:
+  port: 8092
+
+documents:
+  directory: ./documents
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8093/eureka/
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
+    com.nimbusds: DEBUG
+    org.springframework.security.oauth2.jwt: DEBUG

@@ -2,25 +2,24 @@ spring:
   application:
     name: api-user
 
+---
 
+# ---------- Profil Docker ----------
+spring:
+  config:
+    activate:
+      on-profile: docker
 
-#   security:
-#     oauth2:
-#       resourceserver:
-#         jwt:
-#           jwk-set-uri: http://localhost:8083/oauth/jwks  # URL pour obtenir les clés JWK
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://mariadb-api-user:3306/gestionCandidat_user?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-    # url: jdbc:mariadb://mariadb:3306/Jcaisse_user?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
     password: startup
+
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: update
-      # ddl-auto: create-drop
-
 
   app:
     jwtSecret: samaMbote#413F4428472B4B6250655368566D5970337336763979244226452948404D6351
@@ -30,15 +29,41 @@ server:
   servlet:
     context-path: /api/user/gestionCandidature
   port: 8091
-  # port: 8083
 
 eureka:
-  instance:
-    prefer-ip-address: true
   client:
     service-url:
-      defaultZone: ${EUREKA_URI:http://ms-register:8093/eureka/}
-# logging:
-#   level:
-#     org.springframework.web: DEBUG
-#     org.springframework.web.servlet.DispatcherServlet: TRACE
+      defaultZone: http://ms-register:8093/eureka/
+
+---
+
+# ---------- Profil Local ----------
+spring:
+  config:
+    activate:
+      on-profile: local
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/gestionCandidat_user?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: startup
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  app:
+    jwtSecret: samaMbote#413F4428472B4B6250655368566D5970337336763979244226452948404D6351
+    jwtExpirationMs: 86400000
+
+server:
+  servlet:
+    context-path: /api/user/gestionCandidature
+  port: 8091
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8093/eureka/

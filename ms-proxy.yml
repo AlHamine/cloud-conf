@@ -1,33 +1,32 @@
-#   # security:
-#   #   oauth2:
-#   #     resourceserver:
-#   #       jwt:
-#   #         issuer-uri: http://api-user:8091/yaatout/auth  # Remplacez par l'URI de votre serveur d'authentification
-
-#   config:
-# #    import: optional:configserver:http://localhost:8888
-#     import: optional:configserver:http://ms-config:8894
+spring:
+  application:
+    name: ms-proxy
+  main:
+    web-application-type: reactive
 
 server:
   port: 8090
 
-spring:
-  application:
-    name: ms-proxy
-    #   # security:
-  #   #   oauth2:
-  #   #     resourceserver:
-  #   #       jwt:
-  #   #         issuer-uri: http://api-user:8091/yaatout/auth  # Remplacez par l'URI de votre serveur d'authentification
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,gateway"
+  endpoint:
+    gateway:
+      enabled: true
+  health:
+    show-details: always
+
 
   cloud:
     config:
       enabled: false
     gateway:
       discovery:
-        enabled: true # Active la découverte de services via Eureka
+        enabled: true
         locator:
-          enabled: true # Permet au Gateway de localiser les services via Eureka
+          enabled: true
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       globalcors:
@@ -42,42 +41,37 @@ spring:
               - DELETE
               - PUT
               - OPTIONS
-            maxAge: 3600 # en secondes (1h) : durée de cache du preflight
-      routes:
-      #   - id: maquette-service
-      #     uri: http://localhost:8081/
-      #     predicates:
-      #       - Path=/**
-      #   - id: repartition-service
-      #     uri: http://localhost:8082/
-      #     predicates:
-      #       - Path=/**
-      #   - id: emploiDutemps-service
-      #     uri: http://localhost:8083/
-      #     predicates:
-      #       - Path=/**
+            maxAge: 3600
 
-  main:
-    web-application-type: reactive
-    # allow-bean-definition-overriding: true
-
-eureka:
-  client:
-    service-url:
-      defaultZone: ${EUREKA_URI:http://ms-register:8093/eureka/}
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "health,info,gateway"
-  endpoint:
-    gateway:
-      enabled: true
-  health:
-    show-details: always
-# Configuration de log
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
     org.springframework.cloud.gateway.route.RouteDefinitionLocator: TRACE
+
+---
+
+# ---------- PROFIL DOCKER ----------
+spring:
+  config:
+    activate:
+      on-profile: docker
+    import: optional:configserver:http://ms-config:8894
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ms-register:8093/eureka/
+
+---
+
+# ---------- PROFIL LOCAL ----------
+spring:
+  config:
+    activate:
+      on-profile: local
+    import: optional:configserver:http://localhost:8894
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8093/eureka/
