@@ -55,7 +55,6 @@ spring:
   config:
     activate:
       on-profile: docker
-    import: optional:configserver:http://ms-config:8894
 
 eureka:
   client:
@@ -69,7 +68,6 @@ spring:
   config:
     activate:
       on-profile: local
-    import: optional:configserver:http://localhost:8894
 
 eureka:
   client:
