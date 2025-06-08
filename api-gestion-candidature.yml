@@ -5,6 +5,32 @@ spring:
     multipart:
       max-file-size: 20MB
       max-request-size: 40MB
+server:
+  port: 8092
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  app:
+    jwtSecret: samaMbote#413F4428472B4B6250655368566D5970337336763979244226452948404D6351
+    jwtExpirationMs: 86400000
+
+documents:
+  directory: ./documents
+
+
+  mvc:
+    servlet:
+      path: /api/startup
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
+    com.nimbusds: DEBUG
+    org.springframework.security.oauth2.jwt: DEBUG
+
 
 ---
 
@@ -13,11 +39,6 @@ spring:
   config:
     activate:
       on-profile: docker
-
-  mvc:
-    servlet:
-      path: /api/startup
-
   security:
     oauth2:
       resourceserver:
@@ -30,32 +51,12 @@ spring:
     username: root
     password: startup
 
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-
-  app:
-    jwtSecret: samaMbote#413F4428472B4B6250655368566D5970337336763979244226452948404D6351
-    jwtExpirationMs: 86400000
-
-server:
-  port: 8092
-
-documents:
-  directory: /app/documents
 
 eureka:
   client:
     service-url:
       defaultZone: http://ms-register:8093/eureka/
 
-logging:
-  level:
-    org.springframework.security: DEBUG
-    org.springframework.security.oauth2: DEBUG
-    com.nimbusds: DEBUG
-    org.springframework.security.oauth2.jwt: DEBUG
 
 ---
 
@@ -64,10 +65,6 @@ spring:
   config:
     activate:
       on-profile: local
-
-  mvc:
-    servlet:
-      path: /api/startup
 
   security:
     oauth2:
@@ -81,29 +78,9 @@ spring:
     username: daos
     password: daos
 
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-
-  app:
-    jwtSecret: samaMbote#413F4428472B4B6250655368566D5970337336763979244226452948404D6351
-    jwtExpirationMs: 86400000
-
-server:
-  port: 8092
-
-documents:
-  directory: ./documents
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8093/eureka/
 
-logging:
-  level:
-    org.springframework.security: DEBUG
-    org.springframework.security.oauth2: DEBUG
-    com.nimbusds: DEBUG
-    org.springframework.security.oauth2.jwt: DEBUG

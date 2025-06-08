@@ -4,6 +4,9 @@
 spring:
   application:
     name: maquette-service
+server:
+  port: 8094
+
 
 ---
 
