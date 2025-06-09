@@ -5,6 +5,9 @@ spring:
     multipart:
       max-file-size: 20MB
       max-request-size: 40MB
+  mvc:
+    servlet:
+      path: /api/startup
 server:
   port: 8092
   jpa:
@@ -17,12 +20,10 @@ server:
     jwtExpirationMs: 86400000
 
 documents:
-  directory: ./documents
+  directory: /app/documents
 
 
-  mvc:
-    servlet:
-      path: /api/startup
+
 
 logging:
   level:
