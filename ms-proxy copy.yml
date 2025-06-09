@@ -1,0 +1,75 @@
+# spring:
+#   application:
+#     name: ms-proxy
+#   main:
+#     web-application-type: reactive
+
+# server:
+#   port: 8090
+
+# management:
+#   endpoints:
+#     web:
+#       exposure:
+#         include: "health,info,gateway"
+#   endpoint:
+#     gateway:
+#       enabled: true
+#   health:
+#     show-details: always
+
+
+#   cloud:
+#     config:
+#       enabled: false
+#     gateway:
+#       discovery:
+#         enabled: true
+#         locator:
+#           enabled: true
+#       default-filters:
+#         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+#       globalcors:
+#         corsConfigurations:
+#           "[/**]":
+#             allowedOrigins: "http://localhost:3000, http://31.220.20.148:3093, http://depinfo-dev.tech:3093"
+#             allowedHeaders: "*"
+#             allowedMethods:
+#               - GET
+#               - POST
+#               - PATCH
+#               - DELETE
+#               - PUT
+#               - OPTIONS
+#             maxAge: 3600
+
+# logging:
+#   level:
+#     org.springframework.cloud.gateway: DEBUG
+#     org.springframework.cloud.gateway.route.RouteDefinitionLocator: TRACE
+
+# ---
+
+# # ---------- PROFIL DOCKER ----------
+# spring:
+#   config:
+#     activate:
+#       on-profile: docker
+
+# eureka:
+#   client:
+#     service-url:
+#       defaultZone: http://ms-register:8093/eureka/
+
+# ---
+
+# # ---------- PROFIL LOCAL ----------
+# spring:
+#   config:
+#     activate:
+#       on-profile: local
+
+# eureka:
+#   client:
+#     service-url:
+#       defaultZone: http://localhost:8093/eureka/

@@ -4,6 +4,35 @@ spring:
   main:
     web-application-type: reactive
 
+  cloud:
+    config:
+      enabled: false
+    gateway:
+      discovery:
+        enabled: true
+        locator:
+          enabled: true
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "http://localhost:3000"
+              - "http://31.220.20.148:3093"
+              - "http://depinfo-dev.tech:3093"
+            allowedHeaders:
+              - "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PATCH
+              - DELETE
+              - PUT
+              - OPTIONS
+            allowCredentials: true
+            maxAge: 3600
+
 server:
   port: 8090
 
@@ -17,31 +46,6 @@ management:
       enabled: true
   health:
     show-details: always
-
-
-  cloud:
-    config:
-      enabled: false
-    gateway:
-      discovery:
-        enabled: true
-        locator:
-          enabled: true
-      default-filters:
-        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
-      globalcors:
-        corsConfigurations:
-          "[/**]":
-            allowedOrigins: "http://localhost:3000, http://31.220.20.148:3093, http://depinfo-dev.tech:3093"
-            allowedHeaders: "*"
-            allowedMethods:
-              - GET
-              - POST
-              - PATCH
-              - DELETE
-              - PUT
-              - OPTIONS
-            maxAge: 3600
 
 logging:
   level:
