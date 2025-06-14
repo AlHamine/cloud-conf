@@ -1,0 +1,71 @@
+<!-- DTD pour bibliographie XML - corrigée pour valider l'exemple donné -->
+
+<!-- Élément racine -->
+<!ELEMENT bibliography (article | book | inproceedings | incollection | phdthesis | mastersthesis | techreport | manual | misc | unpublished)*>
+
+<!-- Article de journal -->
+<!ELEMENT article (authors, title, journal, year, volume?, number?, pages?, month?, doi?, url?, abstract?, note?)>
+<!ATTLIST article id ID #REQUIRED>
+
+<!-- Livre -->
+<!ELEMENT book (authors, title, publisher, year, volume?, series?, address?, edition?, isbn?, pages?, month?, url?, abstract?, note?)>
+<!ATTLIST book id ID #REQUIRED>
+
+<!-- Article de conférence -->
+<!ELEMENT inproceedings (authors, title, booktitle, year, month?, address?, volume?, pages?, organization?, publisher?, url?, abstract?, note?)>
+<!ATTLIST inproceedings id ID #REQUIRED>
+
+<!-- Chapitre de livre -->
+<!ELEMENT incollection (authors, title, booktitle, publisher, year, editor?, volume?, series?, pages?, chapter?, address?, month?, url?, abstract?, note?)>
+<!ATTLIST incollection id ID #REQUIRED>
+
+<!-- Thèse de doctorat -->
+<!ELEMENT phdthesis (author, title, school, year, month?, url?, note?, pages?, address?, abstract?)>
+<!ATTLIST phdthesis id ID #REQUIRED>
+
+<!-- Mémoire de master -->
+<!ELEMENT mastersthesis (author, title, school, year, month?, url?, note?, pages?, address?, abstract?)>
+<!ATTLIST mastersthesis id ID #REQUIRED>
+
+<!-- Rapport technique -->
+<!ELEMENT techreport (authors, title, institution, year, number?, month?, pages?, address?, url?, abstract?, note?)>
+<!ATTLIST techreport id ID #REQUIRED>
+
+<!-- Manuel -->
+<!ELEMENT manual (title, organization?, address?, edition?, month?, year?, url?, abstract?, note?)>
+<!ATTLIST manual id ID #REQUIRED>
+
+<!-- Document non publié -->
+<!ELEMENT unpublished (authors, title, note, year?, month?, url?)>
+<!ATTLIST unpublished id ID #REQUIRED>
+
+<!-- Divers -->
+<!ELEMENT misc (authors?, title?, howpublished?, url?, year?, month?, abstract?, note?)>
+<!ATTLIST misc id ID #REQUIRED>
+
+<!-- Éléments communs -->
+<!ELEMENT authors (author+)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT editor (#PCDATA)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT journal (#PCDATA)>
+<!ELEMENT booktitle (#PCDATA)>
+<!ELEMENT publisher (#PCDATA)>
+<!ELEMENT school (#PCDATA)>
+<!ELEMENT institution (#PCDATA)>
+<!ELEMENT organization (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT series (#PCDATA)>
+<!ELEMENT howpublished (#PCDATA)>
+<!ELEMENT url (#PCDATA)>
+<!ELEMENT doi (#PCDATA)>
+<!ELEMENT isbn (#PCDATA)>
+<!ELEMENT note (#PCDATA)>
+<!ELEMENT abstract (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT month (#PCDATA)>
+<!ELEMENT volume (#PCDATA)>
+<!ELEMENT number (#PCDATA)>
+<!ELEMENT pages (#PCDATA)>
+<!ELEMENT chapter (#PCDATA)>
+<!ELEMENT edition (#PCDATA)>

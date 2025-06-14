@@ -15,7 +15,14 @@ server:
     context-path: /api/user/gestionCandidature
   port: 8091
 
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
 ---
 
 # ---------- Profil Docker ----------

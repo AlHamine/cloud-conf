@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bibliography SYSTEM "EXO8.dtd">
+<bibliography>
+
+    <!-- Article paru dans un journal -->
+    <article id="abadi_cardelli_al_explsubst">
+        <authors>
+            <author>Abadi, Martín</author>
+            <author>Cardelli, Luca</author>
+            <author>Curien, Pierre-Louis</author>
+            <author>Lévy, Jean-Jacques</author>
+        </authors>
+        <title>Explicit Substitutions</title>
+        <journal>Journal of Functional Programming</journal>
+        <year>1991</year>
+        <volume>1</volume>
+        <number>4</number>
+        <pages>375--416</pages>
+        <month>oct</month>
+        <note>Also appeared as SRC Research Report 54</note>
+    </article>
+
+    <!-- Article paru dans une conférence -->
+    <inproceedings id="ariola_felleisen_al_cbnlambc">
+        <authors>
+            <author>Ariola, Z.</author>
+            <author>Felleisen, M.</author>
+            <author>Maraist, J.</author>
+            <author>Odersky, M.</author>
+            <author>Wadler, P.</author>
+        </authors>
+        <title>A call-by-need lambda calculus</title>
+        <booktitle>Proc. of POPL '95 -- 22th Annual ACM Symposium on Principles of Programming Languages</booktitle>
+        <year>1995</year>
+        <month>jan</month>
+        <address>San Francisco, California</address>
+    </inproceedings>
+
+    <!-- Livre -->
+    <book id="milner_pibook">
+        <authors>
+            <author>Milner, Robin</author>
+        </authors>
+        <title>Communicating and Mobile Systems: the Pi-Calculus</title>
+        <publisher>Cambridge University Press</publisher>
+        <year>2000</year>
+    </book>
+
+    <!-- Thèse de doctorat -->
+    <phdthesis id="compagnoni_hosubt">
+        <author>Compagnoni, Adriana B.</author>
+        <title>Higher-Order Subtyping with Intersection Types</title>
+        <school>University of Nijmegen, The Netherlands</school>
+        <year>1995</year>
+        <month>jan</month>
+        <url>http://www.dcs.ed.ac.uk/home/abc/Th.ps.gz</url>
+        <note>ISBN 90-9007860-6</note>
+    </phdthesis>
+
+    <!-- Document non publié -->
+    <unpublished id="amadio_prasad_locfail">
+        <authors>
+            <author>Amadio, Roberto</author>
+            <author>Prasad, Sanjiva</author>
+        </authors>
+        <title>Localities and Failures</title>
+        <note>Extended version from FST &amp; TCS '94</note>
+        <year>1995</year>
+    </unpublished>
+
+    <!-- Divers (page web) -->
+    <misc id="vasconcelos_typedconcurobj">
+        <authors>
+            <author>Vasconcelos, Vasco T.</author>
+        </authors>
+        <title>Typed Concurrent Objects</title>
+        <howpublished>Web page</howpublished>
+        <url>http://www.di.fc.ul.pt/~vv/tyco.html</url>
+    </misc>
+
+    <!-- Article de conférence corrigé depuis structure bibtex -->
+    <inproceedings id="ariola_felleisen_al_cbnlambc2">
+        <authors>
+            <author>Ariola, Z.</author>
+            <author>Felleisen, M.</author>
+            <author>Maraist, J.</author>
+            <author>Odersky, M.</author>
+            <author>Wadler, P.</author>
+        </authors>
+        <title>A call-by-need lambda calculus</title>
+        <booktitle>Proc. of POPL '95 -- 22nd Annual ACM Symposium on Principles of Programming Languages</booktitle>
+        <year>1995</year>
+        <month>jan</month> <!-- mois AVANT address -->
+        <address>San-Francisco, California</address>
+    </inproceedings>
+    
+
+</bibliography>

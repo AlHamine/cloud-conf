@@ -10,6 +10,16 @@ spring:
     show-sql: true
 server:
   port: 8094
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,gateway"
+  endpoint:
+    gateway:
+      enabled: true
+  health:
+    show-details: always
 
 
 ---
