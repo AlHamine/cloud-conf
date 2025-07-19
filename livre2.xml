@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bibliography SYSTEM "livre.dtd.dtd">
+
+<livre>
+    <auteurs>
+        <auteur nom="Abadi" prenom="Martín" />
+        <auteur nom="Cardelli" prenom="Luca" />
+    </auteurs>
+    <section titre="Explicit Substitutions">
+        <chapitre titre="Explicit Substitutions">
+            <paragraphe>
+                Explicit substitutions are a way to represent the process of substituting variables
+                in expressions without losing the structure of the original expression. This
+                approach allows for more efficient manipulation of expressions, particularly in the
+                context of programming languages and type systems.
+            </paragraphe>
+            <paragraphe>
+                The concept of explicit substitutions was introduced by Abadi, Cardelli, Curien, and
+                Lévy in their seminal paper. They explored how explicit substitutions can be used to
+                enhance the expressiveness of programming languages and improve the efficiency of
+                type checking and evaluation.
+            </paragraphe>
+        </chapitre>
+    </section>
+    <section titre="Call-by-Need Lambda Calculus">
+        <chapitre titre="A Call-by-Need Lambda Calculus">
+            <paragraphe>
+                The call-by-need lambda calculus is a computational model that optimizes the evaluation
+                of expressions by delaying the computation of certain values until they are actually
+                needed. This approach can lead to significant performance improvements in functional
+                programming languages.
+            </paragraphe>
+            <paragraphe>
+                Ariola, Felleisen, Maraist, Odersky, and Wadler introduced this model in their work,
+                demonstrating how it can be applied to enhance the efficiency of functional programming
+                languages.
+            </paragraphe>
+        </chapitre>
+    </section>
+
+
+</livre>
