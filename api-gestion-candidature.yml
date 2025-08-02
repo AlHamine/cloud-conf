@@ -91,8 +91,8 @@ spring:
     password: daos
 
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8093/eureka/
+# eureka:
+#   client:
+#     service-url:
+#       defaultZone: http://localhost:8093/eureka/
 
