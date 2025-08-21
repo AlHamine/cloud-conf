@@ -8,6 +8,14 @@ spring:
   mvc:
     servlet:
       path: /api/startup
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+server:
+  port: 8092
+
+
 
 management:
   endpoints:
@@ -57,13 +65,6 @@ spring:
     username: root
     password: startup
 
-jpa:
-  show-sql: true
-  hibernate:
-    ddl-auto: update
-server:
-  port: 8092
-
 
 eureka:
   client:
@@ -90,13 +91,6 @@ spring:
     url: jdbc:mariadb://localhost:3306/gestionCandidat?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: daos
     password: daos
-
-jpa:
-  show-sql: true
-  hibernate:
-    ddl-auto: create-drop
-server:
-  port: 8092
 
 
 
