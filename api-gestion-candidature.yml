@@ -19,12 +19,6 @@ management:
       enabled: true
   health:
     show-details: always
-server:
-  port: 8092
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
 
   app:
     jwtSecret: samaMbote#413F4428472B4B6250655368566D5970337336763979244226452948404D6351
@@ -63,6 +57,12 @@ spring:
     username: root
     password: startup
 
+server:
+  port: 8092
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
 
 eureka:
   client:
@@ -89,6 +89,12 @@ spring:
     url: jdbc:mariadb://localhost:3306/gestionCandidat?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: daos
     password: daos
+server:
+  port: 8092
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
 
 
 eureka:
