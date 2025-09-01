@@ -32,6 +32,17 @@ spring:
 
   security:
     oauth2:
+      client:
+        registration:
+          ms-a-client:
+            provider: api-user
+            client-id: microserviceA
+            client-secret: secretA
+            authorization-grant-type: client_credentials
+            scope: read,write
+        provider:
+          api-user:
+            token-uri: http://api-user:8091/api/user/oauth/token
       resourceserver:
         jwt:
           jwk-set-uri: http://api-user:8091/api/user/gestionCandidature/oauth/jwks
