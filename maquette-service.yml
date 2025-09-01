@@ -42,7 +42,7 @@ spring:
             scope: read,write
         provider:
           api-user:
-            token-uri: http://api-user:8091/api/user/oauth/token
+            token-uri: http://api-user:8091/api/user/gestionCandidature/oauth/token
       resourceserver:
         jwt:
           jwk-set-uri: http://api-user:8091/api/user/gestionCandidature/oauth/jwks
