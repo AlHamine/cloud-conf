@@ -34,10 +34,10 @@ spring:
     oauth2:
       client:
         registration:
-          ms-a-client:
+          ms-maquette:
             provider: api-user
-            client-id: microserviceA
-            client-secret: secretA
+            client-id: ms-maquette
+            client-secret: ms-maquette-secret
             authorization-grant-type: client_credentials
             scope: read,write
         provider:
