@@ -46,7 +46,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: http://api-user:8091/api/user/gestionCandidature/oauth/jwks
+          jwk-set-uri: https://depinfo-dev.tech/api/user/gestionCandidature/oauth/jwks
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME}?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
