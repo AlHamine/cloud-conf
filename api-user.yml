@@ -53,7 +53,7 @@ spring:
   eureka:
     client:
       service-url:
-        defaultZone: http://ms-register-gestion-candidature:8093/eureka/
+        defaultZone: http://ms-register:8093/eureka/
 
 ---
 # ---------- Profil Local ----------
