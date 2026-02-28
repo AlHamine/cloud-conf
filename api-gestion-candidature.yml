@@ -12,6 +12,10 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+    properties:
+      hibernate:
+        type:
+          preferred_uuid_jdbc_type: BINARY
 server:
   port: 8092
 management:
