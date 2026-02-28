@@ -14,9 +14,6 @@ spring:
       ddl-auto: update
 server:
   port: 8092
-
-
-
 management:
   endpoints:
     web:
@@ -27,17 +24,11 @@ management:
       enabled: true
   health:
     show-details: always
-
   app:
     jwtSecret: samaMbote#413F4428472B4B6250655368566D5970337336763979244226452948404D6351
     jwtExpirationMs: 86400000
-
 documents:
   directory: /app/documents
-
-
-
-
 logging:
   level:
     org.springframework.security: DEBUG
@@ -45,10 +36,8 @@ logging:
     com.nimbusds: DEBUG
     org.springframework.security.oauth2.jwt: DEBUG
 
-
 ---
-
-# ---------- PROFIL DOCKER ----------
+# ---------- PROFIL DOCKER (TEST) ----------
 spring:
   config:
     activate:
@@ -58,44 +47,54 @@ spring:
       resourceserver:
         jwt:
           jwk-set-uri: http://api-user:8091/api/user/gestionCandidature/oauth/jwks
-
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://mariadb-api-gestion-candidature:3306/gestionCandidat?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-    username: root
-    password: startup
-
-
+    url: jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME}?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
 eureka:
   client:
     service-url:
       defaultZone: http://ms-register:8093/eureka/
 
+---
+# ---------- PROFIL PROD ----------
+spring:
+  config:
+    activate:
+      on-profile: prod
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: https://depinfo-dev.tech/api/user/gestionCandidature/oauth/jwks
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME}?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ms-register-gestion-candidature:8093/eureka/
 
 ---
-
 # ---------- PROFIL LOCAL ----------
 spring:
   config:
     activate:
       on-profile: local
-
   security:
     oauth2:
       resourceserver:
         jwt:
           jwk-set-uri: http://localhost:8091/api/user/gestionCandidature/oauth/jwks
-
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://localhost:3306/gestionCandidat?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: daos
     password: daos
-
-
-
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8093/eureka/
-
