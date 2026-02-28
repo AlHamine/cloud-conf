@@ -1,60 +1,45 @@
-spring:
-  application:
-    name: api-user
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-
-  app:
-    jwtSecret: samaMbote#413F4428472B4B6250655368566D5970337336763979244226452948404D6351
-    jwtExpirationMs: 86400000
-
-server:
-  servlet:
-    context-path: /api/user/gestionCandidature
-  port: 8091
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health
-  endpoint:
-    health:
-      show-details: always
----
-
 # ---------- Profil Docker ----------
 spring:
   config:
     activate:
       on-profile: docker
-
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://mariadb-api-user:3306/gestionCandidat_user?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-    username: root
-    password: startup
-
+    url: jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME}?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
 eureka:
   client:
     service-url:
       defaultZone: http://ms-register:8093/eureka/
+
+---
+# ---------- Profil Prod ----------
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME}?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ms-register-gestion-candidature:8093/eureka/
+
 ---
 # ---------- Profil Local ----------
 spring:
   config:
     activate:
       on-profile: local
-
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://localhost:3306/gestionCandidat_user?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: daos
     password: daos
-
-
 eureka:
   client:
     service-url:
