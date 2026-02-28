@@ -43,10 +43,10 @@ spring:
             scope: read,write
         provider:
           api-user:
-            token-uri: http://api-user:8091/api/user/gestionCandidature/oauth/token
+            token-uri: https://depinfo-dev.tech/api/user/gestionCandidature/oauth/token
       resourceserver:
         jwt:
-          jwk-set-uri: http://api-user:8091/api/user/gestionCandidature/oauth/jwks
+          jwk-set-uri: https://depinfo-dev.tech/api/user/gestionCandidature/oauth/jwks
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME}?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
