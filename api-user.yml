@@ -8,10 +8,10 @@ spring:
     url: jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME}?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: ${DB_USER}
     password: ${DB_PASSWORD}
-eureka:
-  client:
-    service-url:
-      defaultZone: http://ms-register:8093/eureka/
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://ms-register:8093/eureka/
 
 ---
 # ---------- Profil Prod ----------
@@ -24,10 +24,10 @@ spring:
     url: jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME}?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: ${DB_USER}
     password: ${DB_PASSWORD}
-eureka:
-  client:
-    service-url:
-      defaultZone: http://ms-register-gestion-candidature:8093/eureka/
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://ms-register-gestion-candidature:8093/eureka/
 
 ---
 # ---------- Profil Local ----------
@@ -40,7 +40,7 @@ spring:
     url: jdbc:mariadb://localhost:3306/gestionCandidat_user?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: daos
     password: daos
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8093/eureka/
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8093/eureka/
