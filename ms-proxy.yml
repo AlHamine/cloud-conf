@@ -58,8 +58,9 @@ spring:
       on-profile: docker
 eureka:
   client:
-    service-url:
-      defaultZone: http://ms-register:8093/eureka/
+    enabled: false
+    # service-url:
+    #   defaultZone: http://ms-register:8093/eureka/
 
 ---
 # ---------- PROFIL PROD ----------
@@ -69,8 +70,9 @@ spring:
       on-profile: prod
 eureka:
   client:
-    service-url:
-      defaultZone: http://ms-register-gestion-candidature:8093/eureka/
+    enabled: false
+    # service-url:
+    #   defaultZone: http://ms-register-gestion-candidature:8093/eureka/
 
 ---
 # ---------- PROFIL LOCAL ----------
@@ -80,5 +82,6 @@ spring:
       on-profile: local
 eureka:
   client:
-    service-url:
-      defaultZone: http://localhost:8093/eureka/
+    enabled: false
+    # service-url:
+    #   defaultZone: http://localhost:8093/eureka/

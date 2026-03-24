@@ -54,8 +54,9 @@ spring:
     password: ${DB_PASSWORD}
   eureka:
     client:
-      service-url:
-        defaultZone: http://ms-register:8093/eureka/
+      enabled: false
+      # service-url:
+      #   defaultZone: http://ms-register:8093/eureka/
 
 springdoc:
   api-docs:
@@ -95,8 +96,9 @@ spring:
     password: ${DB_PASSWORD}
   eureka:
     client:
-      service-url:
-        defaultZone: http://ms-register-gestion-candidature:8093/eureka/
+      enabled: false
+      # service-url:
+      #   defaultZone: http://ms-register-gestion-candidature:8093/eureka/
 
 ---
 # ------------------------------------
@@ -118,5 +120,6 @@ spring:
     password: daos
   eureka:
     client:
-      service-url:
-        defaultZone: http://localhost:8093/eureka/
+      enabled: false
+      # service-url:
+      #   defaultZone: http://localhost:8093/eureka/
